@@ -249,7 +249,7 @@ def GetDamage(unit_name: str) -> str:
 def SetSpeed(unit_name: str, throttle: int) -> str:
     return ( 
         f"(function()"
-        f"ScenEdit_SetUnit({{unitname='{unit_name}',throttle={throttle}}})" # 0 = FullStop, 1 = Creep, 2 = Cruise, 3 = Full, 4 = Flank, 5  = None 
+        f"ScenEdit_SetUnit({{unitname='{unit_name}',manualthrottle={throttle}}})" # 0 = FullStop, 1 = Creep, 2 = Cruise, 3 = Full, 4 = Flank, 5  = None 
     )
 
 def GetAllyAlive(unit_name: str, side: str) -> str:
@@ -266,6 +266,15 @@ def GetAllyAlive(unit_name: str, side: str) -> str:
         f"return {{alive= false}} "
         f"end "
         f"return result "
+        f"end)()"
+    )
+
+def GetEnemyRange() -> str:
+    return (
+        f"(function() "
+        f"u = ScenEdit_GetUnit({{side = 'Red', unitname = 'RED_SSM1'}}) "
+        f"for i, sensors in pairs(u.sensors) do "
+        f"return {{sensors.sensor_maxrange}} "
         f"end)()"
     )
 

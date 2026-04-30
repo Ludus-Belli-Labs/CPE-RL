@@ -38,7 +38,8 @@ if __name__ == "__main__":
     TCP_PORT = 7777 
 
     runSimulation = 'VP_RunForTimeAndHalt ( {Time="00.05.00"} )'
-    side = 'Blue' 
+    side = 'Blue'
+    unitName = 'F_801' 
     
     try:
         with CMO_SocketClient.CMO_SocketClient(TCP_IP, TCP_PORT) as client:
@@ -61,7 +62,7 @@ if __name__ == "__main__":
                 #     print("No controllable unit found.")
                 #     continue
 
-                print("\n>>> Sending 'Run Simulation' command...")
+                # print("\n>>> Sending 'Run Simulation' command...")
                 
                 # client.send(f"{simulationSpeed}")
                 
@@ -72,23 +73,21 @@ if __name__ == "__main__":
                 
 
 
-                # print ("\n>>> Sending 'Get Unit coords' command...")
-                # client.send(LuaHandler.GetUnitCoords(unitName, side))
-                # unit_coords = client.receive(format='lua_table')
-                # # print (f"\n<<< Received unit coords: {unit_coords}")
-                # ship_lat = unit_coords['latitude']
-                # ship_lon = unit_coords['longitude']
+                print ("\n>>> Sending 'Get Unit coords' command...")
+                client.send(LuaHandler.GetUnitCoords(unitName, side))
+                unit_coords = client.receive(format='lua_table')
+                # print (f"\n<<< Received unit coords: {unit_coords}")
+                ship_lat = unit_coords['latitude']
+                ship_lon = unit_coords['longitude']
 
-                # print("\n>>> Sending 'Set Unit Waypoint' command...")
-                # wp_lat, wp_lon = random_point_around(ship_lat, ship_lon, radius_km=100)
-                # client.send(LuaHandler.SetUnitWaypoint(unitName, side, wp_lat, wp_lon))
-                # wp_response = client.receive(format='lua_table')
+                print("\n>>> Sending 'Set Unit Waypoint' command...")
+                wp_lat, wp_lon = random_point_around(ship_lat, ship_lon, radius_km=100)
+                client.send(LuaHandler.SetUnitWaypoint(unitName, side, wp_lat, wp_lon))
+                wp_response = client.receive(format='lua_table')
 
                 # throttle = 3 # 0 = FullStop, 1 = Creep, 2 = Cruise, 3 = Full, 4 = Flank, 5  = None
 
                 # client.send(LuaHandler.ChangeTimeCompression(3))
-
-                client.send(LuaHandler.ChangeTimeCompression(3))
 
                 # print(f"\n >>> Set speed")
                 # client.send(LuaHandler.SetSpeed(unitName, throttle))

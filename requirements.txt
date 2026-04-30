@@ -3,7 +3,3 @@ matplotlib
 tqdm
 gymnasium 
 numpy 
-math
-random
-json
-time

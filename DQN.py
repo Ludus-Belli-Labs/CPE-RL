@@ -1,9 +1,13 @@
 import math
 import random
-import json
 import time
 import os
 import numpy as np
+
+from collections import deque
+import torch
+import torch.nn as nn
+import torch.optim as optim
 
 import gymnasium as gym
 from gymnasium import spaces
@@ -13,8 +17,32 @@ import LuaHandler
 from RandomScen import random_scen
 from TrainingGraphs import TrainingGraph
 
+import sys
+import logging
+from datetime import datetime
 
 # ── Helper ────────────────────────────────────────────────────
+
+log_filename = f"training_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(message)s",
+    handlers=[
+        logging.FileHandler(log_filename, encoding="utf-8"),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
+# Redirect all print() calls to the logger
+class _PrintToLogger:
+    def __init__(self, logger): self.logger = logger
+    def write(self, msg):
+        if msg.strip(): self.logger.info(msg.rstrip())
+    def flush(self): pass
+
+sys.stdout = _PrintToLogger(logging.getLogger())
+
 
 def random_point_around(lat, lon, radius_km):
     EARTH_RADIUS = 6371
@@ -60,15 +88,15 @@ TARGET_APPROACH_REWARD  = +0.2   # Reward for getting closer to the target
 TARGET_RETREAT_PENALTY  = -0.2  # Penalty for getting further from the target
 SCENARIO_SUCCESS_REWARD = +100.0  # Reward for scenario success
 SCENARIO_FAIL_PENALTY = -100.0  # Penalty for scenario failure
-CONTACT_CLASSIFIED_REWARD = +0.5  # Reward for classifying a contact from unknown to something else
+CONTACT_CLASSIFIED_REWARD = +5.0  # Reward for classifying a contact from unknown to something else
 
 # Environment ----------------------------------------------------------------
 
 class CMOEnv(gym.Env):
-    N_ACTIONS = 10 
+    N_ACTIONS = 15 
     
     def __init__(self, tcp_ip="127.0.0.1", tcp_port=7778, side="Blue",
-                 radius_km=100.0, sim_step="00.05.00", max_steps=30):
+                 radius_km=100.0, sim_step="00.05.00"):
         super().__init__()
 
         self.tcp_ip   = tcp_ip
@@ -76,9 +104,10 @@ class CMOEnv(gym.Env):
         self.side     = side
         self.radius_km = radius_km
         self.sim_step  = sim_step
-        self.max_steps = max_steps
         self.radar_on = False
         self.radar_steps = 0
+        self.is_moving = False
+        self.waypoint = None
 
         self.observation_space = spaces.Discrete(9)   
         self.action_space      = spaces.Discrete(self.N_ACTIONS)   
@@ -216,12 +245,25 @@ class CMOEnv(gym.Env):
  
         print(f"  [TARGET] Coords not found for target '{target_name}'.")
         return None
+    
+    def get_enemy_radar_range(self) -> float | None:
+        
+        resp = self._send(LuaHandler.GetEnemyRange())
+        if isinstance(resp, dict) and resp:
+            val = list(resp.values())[0]
+            try:
+                return float(val)
+            except (TypeError, ValueError):
+                pass
+        return None
 
     # ── Gymnasium API ─────────────────────────────────────────
 
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
         self.steps = 0
+        self.waypoint  = None
+        self.is_moving = False
  
         if self.client is None:
             self.client = CMO_SocketClient.CMO_SocketClient(self.tcp_ip, self.tcp_port)
@@ -276,6 +318,25 @@ class CMOEnv(gym.Env):
         reward = 0.0
         attacked_guid = None
         attacked_posture = None
+        wp_lat, wp_lon = None, None
+
+        MOVE_ACTIONS = {1, 2, 14}  # move_random, move_to_ally, move_to_target
+        if self.is_moving and action in MOVE_ACTIONS:
+            print(f"  [BLOCKED] Move action {action} ignored — already en-route to {self.waypoint}.")
+            reward -= 5.0  
+            self.lat, self.lon = self._get_coords()
+            # Check if waypoint reached (within 1 km)
+            if self.waypoint is not None:
+                dist = haversine_km(self.lat, self.lon, self.waypoint[0], self.waypoint[1])
+                if dist <= 1.0:
+                    print(f"  [WAYPOINT] Reached destination ({dist:.2f} km). Movement unlocked.")
+                    self.is_moving = False
+                    self.waypoint  = None
+            self.contacts = self._get_contacts()
+            obs = self._build_obs(self.contacts)
+            terminal_reward, terminated, success = self.check_and_restart()
+            reward += terminal_reward
+            return obs, reward, terminated, False, {"success": success}
 
         if action == 0:  # nothing
             reward -= 1.0
@@ -283,25 +344,10 @@ class CMOEnv(gym.Env):
         elif action == 1:  # Move
             wp_lat, wp_lon = random_point_around(self.lat, self.lon, self.radius_km)
             self._send(LuaHandler.SetUnitWaypoint(self.unit_name, self.side, wp_lat, wp_lon))
-            # self._send(LuaHandler.SetSpeed(self.unit_name, 3))
+            self._send(LuaHandler.SetSpeed(self.unit_name, 3))
+            self.waypoint  = (wp_lat, wp_lon)
+            self.is_moving = True
             print(f"  [MOVE] → ({wp_lat:.3f}, {wp_lon:.3f})")
- 
-        elif action == 2:  # Move to ally
-            resp = self._send(LuaHandler.GetAllyUnitCoords(self.unit_name, self.side))
-            ally = None
-            if isinstance(resp, list) and len(resp) > 0:
-                ally = resp[0]
-            elif isinstance(resp, dict) and len(resp) > 0:
-                first = list(resp.values())[0]
-                if isinstance(first, dict) and "latitude" in first:
-                    ally = first
-            if ally and "latitude" in ally and "longitude" in ally:
-                wp_lat, wp_lon = random_point_around(float(ally["latitude"]), float(ally["longitude"]), radius_km=10.0)
-                self._send(LuaHandler.SetUnitWaypoint(self.unit_name, self.side, wp_lat, wp_lon))
-                # self._send(LuaHandler.SetSpeed(self.unit_name, 3))
-                print(f"  [MOVE TO ALLY] {ally.get('name', '?')} → ({wp_lat:.3f}, {wp_lon:.3f})")
-            else:
-                print("  [MOVE TO ALLY] No allies found.")
  
         elif action == 3:  # Attack contact slot 0
             slot = 0
@@ -313,7 +359,7 @@ class CMOEnv(gym.Env):
                 print(f"  [ATTACK slot={slot}] {target['name']} (posture={target['posture_str']}) → {resp}")
             else:
                 print(f"  [ATTACK slot={slot}] No contact in this slot.")
-                reward += ATTACK_PENALTY * 2
+                reward += ATTACK_PENALTY 
  
         elif action == 4:  # Attack contact slot 1
             slot = 1
@@ -325,7 +371,7 @@ class CMOEnv(gym.Env):
                 print(f"  [ATTACK slot={slot}] {target['name']} (posture={target['posture_str']}) → {resp}")
             else:
                 print(f"  [ATTACK slot={slot}] No contact in this slot.")
-                reward += ATTACK_PENALTY * 2
+                reward += ATTACK_PENALTY 
  
         elif action == 5:  # Attack contact slot 2
             slot = 2
@@ -337,7 +383,7 @@ class CMOEnv(gym.Env):
                 print(f"  [ATTACK slot={slot}] {target['name']} (posture={target['posture_str']}) → {resp}")
             else:
                 print(f"  [ATTACK slot={slot}] No contact in this slot.")
-                reward += ATTACK_PENALTY * 2
+                reward += ATTACK_PENALTY 
  
         elif action == 6:  # Attack contact slot 3
             slot = 3
@@ -349,7 +395,7 @@ class CMOEnv(gym.Env):
                 print(f"  [ATTACK slot={slot}] {target['name']} (posture={target['posture_str']}) → {resp}")
             else:
                 print(f"  [ATTACK slot={slot}] No contact in this slot.")
-                reward += ATTACK_PENALTY * 2
+                reward += ATTACK_PENALTY 
 
         elif action == 7: # Radar On
             if not self.radar_on:
@@ -360,6 +406,9 @@ class CMOEnv(gym.Env):
                 self.steps = 0  
                 print(f"  [RADAR ON] Radar activated.")
                 reward += RADAR_REWARD
+            else:
+                reward = RADAR_PENALTY
+                print(f"  [RADAR ON] Radar already on. Penalty applied.")
         
         elif action == 8: # Radar Off
             if self.radar_on:
@@ -370,41 +419,65 @@ class CMOEnv(gym.Env):
                 self.steps = 0  # Reset timer
                 print(f"  [RADAR OFF] Radar deactivated.")
                 reward += RADAR_OFF_REWARD
-
-        # elif action == 9: # set speed to FullStop
-        #     self._send(LuaHandler.SetSpeed(self.unit_name, 0))
-        #     print(f"  [SPEED] Set to FullStop.")
-        
-        # elif action == 10: # set speed to Creep
-        #     self._send(LuaHandler.SetSpeed(self.unit_name, 1))
-        #     print(f"  [SPEED] Set to Creep.")
- 
-        # elif action == 11: # set speed to Cruise
-        #     self._send(LuaHandler.SetSpeed(self.unit_name, 2))
-        #     print(f"  [SPEED] Set to Cruise.")
-
-        # elif action == 12: # set speed to Full
-        #     self._send(LuaHandler.SetSpeed(self.unit_name, 3))
-        #     print(f"  [SPEED] Set to Full.")
-
-        # elif action == 13: # set speed to Flank
-        #     self._send(LuaHandler.SetSpeed(self.unit_name, 4))
-        #     print(f"  [SPEED] Set to Flank.")
-
-        elif action == 9:  # Move toward target
-            target_coords = self._get_target_coords()
-            if target_coords:
-                t_lat, t_lon = target_coords
-                self._send(LuaHandler.SetUnitWaypoint(self.unit_name, self.side, t_lat, t_lon))
-                # self._send(LuaHandler.SetSpeed(self.unit_name, 3))
-                print(f"  [MOVE TO TARGET] → ({t_lat:.3f}, {t_lon:.3f})")
             else:
-                print(f"  [MOVE TO TARGET] Target not found, moving randomly.")
-                wp_lat, wp_lon = random_point_around(self.lat, self.lon, self.radius_km)
-                self._send(LuaHandler.SetUnitWaypoint(self.unit_name, self.side, wp_lat, wp_lon))
-                # self._send(LuaHandler.SetSpeed(self.unit_name, 3))
+                reward = RADAR_PENALTY
+                print(f"  [RADAR OFF] Radar already off. Penalty applied.")
+
+        elif action == 9 and self.is_moving:   # FullStop while moving
+            self.is_moving = False
+            self.waypoint  = None
+            print("  [SPEED] Set to FullStop — movement cancelled.")
+        
+        elif action == 10: # set speed to Creep
+            self._send(LuaHandler.SetSpeed(self.unit_name, 1))
+            print(f"  [SPEED] Set to Creep.")
  
- 
+        elif action == 11: # set speed to Cruise
+            self._send(LuaHandler.SetSpeed(self.unit_name, 2))
+            print(f"  [SPEED] Set to Cruise.")
+
+        elif action == 12: # set speed to Full
+            self._send(LuaHandler.SetSpeed(self.unit_name, 3))
+            print(f"  [SPEED] Set to Full.")
+
+        elif action == 13: # set speed to Flank
+            self._send(LuaHandler.SetSpeed(self.unit_name, 4))
+            print(f"  [SPEED] Set to Flank.")
+
+# -- Actions for Strike mission type ---------------------
+        elif action == 14 and self.mission_type == "Strike":
+                target_coords = self._get_target_coords()
+                if target_coords:
+                    t_lat, t_lon = target_coords
+                    self._send(LuaHandler.SetUnitWaypoint(self.unit_name, self.side, t_lat, t_lon))
+                    self._send(LuaHandler.SetSpeed(self.unit_name, 3))
+                    self.waypoint  = (t_lat, t_lon)
+                    self.is_moving = True
+                    print(f"  [MOVE TO TARGET] → ({t_lat:.3f}, {t_lon:.3f})")
+                else:
+                    print(f"  [MOVE TO TARGET] Target not found, moving randomly.")
+
+ # -- Actions for Patrol mission type ---------------------
+        elif action == 2 and self.mission_type == "Patrol":
+                resp = self._send(LuaHandler.GetAllyUnitCoords(self.unit_name, self.side))
+                ally = None
+                if isinstance(resp, list) and len(resp) > 0:
+                    ally = resp[0]
+                elif isinstance(resp, dict) and len(resp) > 0:
+                    first = list(resp.values())[0]
+                    if isinstance(first, dict) and "latitude" in first:
+                        ally = first
+                if ally and "latitude" in ally and "longitude" in ally:
+                    wp_lat, wp_lon = random_point_around(float(ally["latitude"]), float(ally["longitude"]), radius_km=10.0)
+                    self._send(LuaHandler.SetUnitWaypoint(self.unit_name, self.side, wp_lat, wp_lon))
+                    self._send(LuaHandler.SetSpeed(self.unit_name, 3))
+                    self.waypoint  = (wp_lat, wp_lon)
+                    self.is_moving = True
+                    print(f"  [MOVE TO ALLY] {ally.get('name', '?')} → ({wp_lat:.3f}, {wp_lon:.3f})")
+                else:
+                    print("  [MOVE TO ALLY] No allies found.")
+
+
         if self.radar_on:
                 if len(self.contacts) == 0:
                     self.steps += 1
@@ -423,6 +496,14 @@ class CMOEnv(gym.Env):
         self.contacts = self._get_contacts()
         self.lat, self.lon = self._get_coords()
         obs = self._build_obs(self.contacts)
+        
+        # Check if it reached the waypoint
+        if self.is_moving and self.waypoint is not None:
+            dist_to_wp = haversine_km(self.lat, self.lon, self.waypoint[0], self.waypoint[1])
+            if dist_to_wp <= 1.0:
+                print(f"  [WAYPOINT] Reached destination ({dist_to_wp:.2f} km). Movement unlocked.")
+                self.is_moving = False
+                self.waypoint  = None
 
         # Check for contact classification 
         for c in self.contacts:
@@ -547,63 +628,98 @@ class CMOEnv(gym.Env):
                 
         print(f"[RESTART] WARNING: could not confirm mission type — keeping: {self.mission_type}")
  
-    def check_and_restart(self) -> tuple[float, bool, bool]:
+    def check_and_restart(self, attack_posture=None) -> tuple[float, bool, bool]:
         resp_score = self._send(LuaHandler.Score(self.side))
         score = resp_score.get("score", 0) if isinstance(resp_score, dict) else 0
-        print(f"  [DEBUG] Score: {score}")
+        # print(f"  [DEBUG] Score: {score}")
  
         time_resp = self._send(LuaHandler.GetRemainingTime())
         remaining = time_resp.get("remaining", 0) if isinstance(time_resp, dict) else 0
         formatted = time_resp.get("formatted", "?") if isinstance(time_resp, dict) else "?"
 
-        # mission type check 
-        if self.mission_type == "Patrol":
-            ally_resp = self._send(LuaHandler.GetAllyAlive(self.unit_name, self.side))
-            ally_dead = False
- 
-            if isinstance(ally_resp, dict):
-                if ally_resp.get("alive") is False:
-                    ally_dead = True
-            elif isinstance(ally_resp, list):
-                ally_dead = len(ally_resp) == 0
- 
-            if ally_dead:
-                print(f"[TERMINAL] Failed Patrol mission — ally destroyed! Penalty: {ALLY_DEAD_PENALTY}")
-
-                pause = 'VP_RunForTimeAndHalt ( {Time="00.10.00"} )' 
-                self._send(pause, fmt="string")
-
-                self.restart()
-                return ALLY_DEAD_PENALTY, True, False
-            
-        # score check 
-        if score == 20:
-            elapsed = self.time_limit - remaining
-            time_reward = elapsed * TIME_PENALTY
-            total_reward = time_reward + SCENARIO_SUCCESS_REWARD
-            print(f"[TERMINAL] Scenario complete! {formatted} left → {time_reward:.1f} + {SCENARIO_SUCCESS_REWARD} = {total_reward:.1f} reward")
-            pause = 'VP_RunForTimeAndHalt ( {Time="00.10.00"} )' 
-            self._send(pause, fmt="string")
-            self.restart()
-            return total_reward, True, True
         
-        elif score == -20:
-            if self.mission_type == "Patrol":
-                print(f"[TERMINAL] Failed Patrol mission — Attacked a non hostiele unit! Penalty: {SCENARIO_FAIL_PENALTY}")
+# -- Patrol mission check -----------------------------------------
+        if self.mission_type == "Patrol":
+            if score == 20:
+                # Check distance to ally
+                ally_resp = self._send(LuaHandler.GetAllyUnitCoords(self.unit_name, self.side))
+                ally = None
+                if isinstance(ally_resp, list) and len(ally_resp) > 0:
+                    ally = ally_resp[0]
+                elif isinstance(ally_resp, dict) and len(ally_resp) > 0:
+                    first = list(ally_resp.values())[0]
+                    if isinstance(first, dict) and "latitude" in first:
+                        ally = first
+
+                if ally and "latitude" in ally and "longitude" in ally:
+                    dist_to_ally_km = haversine_km(self.lat, self.lon, float(ally["latitude"]), float(ally["longitude"]))
+
+                    if dist_to_ally_km > 20.0:
+                        print(f"[TERMINAL] Patrol FAILED! Merchant reached destination but agent was {dist_to_ally_km:.1f} km away.")
+                        self._send('VP_RunForTimeAndHalt ( {Time="00.10.00"} )', fmt="string")
+                        self.restart()
+                        return SCENARIO_FAIL_PENALTY, True, False
+                    
+                    elif dist_to_ally_km <= 20.0:
+                        elapsed = self.time_limit - remaining
+                        time_reward = elapsed * TIME_PENALTY
+                        total_reward = time_reward + SCENARIO_SUCCESS_REWARD
+                        print(f"[TERMINAL] Patrol complete! Agent was within range → {total_reward:.1f} reward")
+                        self._send('VP_RunForTimeAndHalt ( {Time="00.10.00"} )', fmt="string")
+                        self.restart()
+                        return total_reward, True, True
                 
-                pause = 'VP_RunForTimeAndHalt ( {Time="00.10.00"} )' 
-                self._send(pause, fmt="string")
-                self.restart()
-                return SCENARIO_FAIL_PENALTY, True, False
-            else:
+            elif score <= -20:
+                # Attack a non hostile 
+                if attack_posture is not None and attack_posture !="H":
+                    print(f"[TERMINAL] Patrol failed! Non-hostile attacked (posture='{attack_posture}')! Penalty: {SCENARIO_FAIL_PENALTY}")
+                    self._send('VP_RunForTimeAndHalt ( {Time="00.10.00"} )', fmt="string")
+                    self.restart()
+                    return SCENARIO_FAIL_PENALTY, True, False
+                else:
+                    # Ally dead
+                    print(f"[TERMINAL] Patrol failed! Ally was hit! Penalty: {ALLY_DEAD_PENALTY}")
+                    self._send('VP_RunForTimeAndHalt ( {Time="00.10.00"} )', fmt="string")
+                    self.restart()
+                    return ALLY_DEAD_PENALTY, True, False
+                
+            
+# -- Strike mission checks -----------------------------------------    
+        elif self.mission_type == "Strike":
+            # Time limit 
+            if score == -20:
                 full_penalty = self.time_limit * TIME_PENALTY
-                print(f"[TERMINAL] Time expired! Penalty: {full_penalty}")
-                
-                pause = 'VP_RunForTimeAndHalt ( {Time="00.10.00"} )' 
-                self._send(pause, fmt="string")
+                print(f"[TERMINAL] Scenario failed — time limit expired! Penalty: {full_penalty}")
+                self._send('VP_RunForTimeAndHalt ( {Time="00.10.00"} )', fmt="string")
                 self.restart()
                 return full_penalty, True, False
- 
+                
+            # Detected 
+            if self.target_guid:
+                target_coords = self._get_target_coords()
+                if target_coords:
+                    t_lat, t_lon = target_coords
+                    radar_range_km = self.get_enemy_radar_range()
+                    if radar_range_km is not None:
+                        dist_km = haversine_km(self.lat, self.lon, t_lat, t_lon)
+                        if dist_km <= radar_range_km:
+                            print(f"[TERMINAL] Scenario failed — detected by enemy radar! Distance {dist_km:.1f} km ≤ range {radar_range_km:.1f} km.")
+                            self._send('VP_RunForTimeAndHalt ( {Time="00.10.00"} )', fmt="string")
+                            self.restart()
+                            return SCENARIO_FAIL_PENALTY, True, False
+            # Success
+            if score == 20:
+                elapsed = self.time_limit - remaining
+                time_reward = elapsed * TIME_PENALTY
+                total_reward = time_reward + SCENARIO_SUCCESS_REWARD
+                print(
+                    f"[TERMINAL] Scenario complete! {formatted} left → "
+                    f"{time_reward:.1f} + {SCENARIO_SUCCESS_REWARD} = {total_reward:.1f} reward"
+                )
+                self._send('VP_RunForTimeAndHalt ( {Time="00.10.00"} )', fmt="string")
+                self.restart()
+                return total_reward, True, True
+
         return 0.0, False, False
 
     def close(self):
@@ -612,94 +728,207 @@ class CMOEnv(gym.Env):
             self.client = None
 
 
-# ── Q-Learning Agent ──────────────────────────────────────────
+# ── Deep Q-Network (DQN) Agent ────────────────────────────────
 
-class QLearningAgent:
-    def __init__(self, n_actions=CMOEnv.N_ACTIONS, lr=0.05, gamma=0.99,
-                 epsilon=1.0, epsilon_min=0.2, epsilon_decay=0.995):
-        self.n_actions     = n_actions
-        self.lr            = lr
-        self.gamma         = gamma
-        self.epsilon       = epsilon
-        self.epsilon_min   = epsilon_min
-        self.epsilon_decay = epsilon_decay
-        self.q_table       = {}
-        self._last_qtable_size = 0
-        self._ep_td_errors = []   
-        self._ep_q_values  = []   
- 
-    def _get_q(self, state):
-        key = tuple(state)
-        if key not in self.q_table:
-            self.q_table[key] = np.zeros(self.n_actions)
-        return self.q_table[key]
- 
-    def act(self, state):
-        key = tuple(int(x) for x in state)
-        if key not in self.q_table:
-            return random.randrange(self.n_actions)
-        q = self._get_q(state)
-        if np.all(q == 0):
-            return random.randrange(self.n_actions)
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from collections import deque
+
+# --- Neural Network definition ---
+
+class _QNetwork(nn.Module):
+    """Simple MLP: obs_dim → 128 → 128 → n_actions."""
+    def __init__(self, obs_dim: int, n_actions: int):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(obs_dim, 128),
+            nn.ReLU(),
+            nn.Linear(128, 128),
+            nn.ReLU(),
+            nn.Linear(128, n_actions),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.net(x)
+
+
+class DQNAgent:
+    """
+    Deep Q-Network agent (with experience replay + target network).
+
+    Replaces QLearningAgent while keeping the same external interface:
+      act(state) → action
+      update(state, action, reward, next_state, done)
+      decay()
+      save(path) / load(path)
+      save_checkpoint(episode)
+    """
+
+    def __init__(
+        self,
+        obs_dim: int       = 9,           # CMOEnv observation size
+        n_actions: int     = CMOEnv.N_ACTIONS,
+        lr: float          = 0.001,
+        gamma: float       = 0.99,
+        epsilon: float     = 1.0,
+        epsilon_min: float = 0.05,
+        epsilon_decay: float = 0.995,
+        batch_size: int    = 64,
+        buffer_size: int   = 10_000,
+        target_update_freq: int = 30,     # update target net every N learn() calls
+    ):
+        self.obs_dim           = obs_dim
+        self.n_actions         = n_actions
+        self.lr                = lr
+        self.gamma             = gamma
+        self.epsilon           = epsilon
+        self.epsilon_min       = epsilon_min
+        self.epsilon_decay     = epsilon_decay
+        self.batch_size        = batch_size
+        self.target_update_freq = target_update_freq
+
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"[DQN] Using device: {self.device}")
+
+        # Online network (trained every step) and frozen target network
+        self.online_net = _QNetwork(obs_dim, n_actions).to(self.device)
+        self.target_net = _QNetwork(obs_dim, n_actions).to(self.device)
+        self.target_net.load_state_dict(self.online_net.state_dict())
+        self.target_net.eval()
+
+        self.optimizer = optim.Adam(self.online_net.parameters(), lr=self.lr)
+        self.loss_fn   = nn.MSELoss()
+
+        # Replay buffer
+        self.replay_buffer: deque = deque(maxlen=buffer_size)
+
+        # Counters / diagnostics
+        self._learn_steps   = 0
+        self._ep_td_errors  = []
+        self._ep_q_values   = []
+
+    # ── Internal helpers ──────────────────────────────────────
+
+    def _obs_to_tensor(self, obs) -> torch.Tensor:
+        """Convert a numpy obs array to a float32 tensor on device."""
+        return torch.tensor(obs, dtype=torch.float32, device=self.device)
+
+    def _learn(self):
+        """Sample a mini-batch and perform one gradient-descent step."""
+        if len(self.replay_buffer) < self.batch_size:
+            return  # not enough samples yet
+
+        batch = random.sample(self.replay_buffer, self.batch_size)
+        states, actions, rewards, next_states, dones = zip(*batch)
+
+        states      = torch.stack([self._obs_to_tensor(s) for s in states])
+        next_states = torch.stack([self._obs_to_tensor(s) for s in next_states])
+        actions     = torch.tensor(actions,  dtype=torch.long,    device=self.device)
+        rewards     = torch.tensor(rewards,  dtype=torch.float32, device=self.device)
+        dones       = torch.tensor(dones,    dtype=torch.float32, device=self.device)
+
+        # Current Q-values for taken actions
+        q_vals = self.online_net(states).gather(1, actions.unsqueeze(1)).squeeze(1)
+
+        # Target Q-values (no gradient through target net)
+        with torch.no_grad():
+            max_next_q = self.target_net(next_states).max(dim=1).values
+            targets = rewards + self.gamma * max_next_q * (1.0 - dones)
+
+        loss = self.loss_fn(q_vals, targets)
+
+        self.optimizer.zero_grad()
+        loss.backward()
+        # Gradient clipping for stability
+        nn.utils.clip_grad_norm_(self.online_net.parameters(), max_norm=10.0)
+        self.optimizer.step()
+
+        # Diagnostics
+        td_errors = (targets - q_vals).detach().cpu().numpy()
+        self._ep_td_errors.extend(td_errors.tolist())
+        self._ep_q_values.extend(q_vals.detach().cpu().numpy().tolist())
+
+        # Periodically sync target network
+        self._learn_steps += 1
+        if self._learn_steps % self.target_update_freq == 0:
+            self.target_net.load_state_dict(self.online_net.state_dict())
+            print(f"  [DQN] Target network synced at learn-step {self._learn_steps}")
+
+    # ── Public interface (mirrors QLearningAgent) ─────────────
+
+    def act(self, state) -> int:
+        """epsilon-greedy action selection."""
         if random.random() < self.epsilon:
             return random.randrange(self.n_actions)
-        return int(np.argmax(q))
- 
+        with torch.no_grad():
+            q = self.online_net(self._obs_to_tensor(state).unsqueeze(0))
+        return int(q.argmax(dim=1).item())
+
     def update(self, state, action, reward, next_state, done):
-        q         = self._get_q(state)
-        q_next    = self._get_q(next_state)
-        target    = reward + (0 if done else self.gamma * np.max(q_next))
-        td_error  = target - q[action]
-        q[action] += self.lr * td_error
-        self._ep_td_errors.append(td_error)
-        self._ep_q_values.append(float(np.max(q)))
- 
+        """Store transition in replay buffer then learn."""
+        self.replay_buffer.append((state, action, reward, next_state, done))
+        self._learn()
+
     def decay(self):
-        if len(self.q_table) > self._last_qtable_size:
-            self.epsilon = max(self.epsilon_min, self.epsilon * self.epsilon_decay)
-            self._last_qtable_size = len(self.q_table)
- 
-    def save(self, path="model.json"):
-        data = {
+        """Decay epsilon after each episode (unconditional, mirrors old behaviour)."""
+        self.epsilon = max(self.epsilon_min, self.epsilon * self.epsilon_decay)
+
+    def save(self, path="model.pt"):
+        """Save the full agent state (weights + hyperparameters) to a .pt file."""
+        torch.save({
             "hyperparameters": {
-                "n_actions":     self.n_actions,
-                "lr":            self.lr,
-                "gamma":         self.gamma,
-                "epsilon":       self.epsilon,
-                "epsilon_min":   self.epsilon_min,
-                "epsilon_decay": self.epsilon_decay,
+                "obs_dim":            self.obs_dim,
+                "n_actions":          self.n_actions,
+                "lr":                 self.lr,
+                "gamma":              self.gamma,
+                "epsilon":            self.epsilon,
+                "epsilon_min":        self.epsilon_min,
+                "epsilon_decay":      self.epsilon_decay,
+                "batch_size":         self.batch_size,
+                "target_update_freq": self.target_update_freq,
             },
-            "q_table": {str(k): v.tolist() for k, v in self.q_table.items()},
-        }
-        with open(path, "w") as f:
-            json.dump(data, f, indent=2)
-        print(f"[AGENT] Model saved → {path} ({len(self.q_table)} states, ε={self.epsilon:.4f})")
- 
+            "online_net": self.online_net.state_dict(),
+            "target_net": self.target_net.state_dict(),
+            "optimizer":  self.optimizer.state_dict(),
+        }, path)
+        print(f"[DQN] Model saved → {path} (ε={self.epsilon:.4f}, "
+              f"buffer={len(self.replay_buffer)})")
+
     def save_checkpoint(self, episode: int, checkpoint_dir: str = "checkpoints"):
         os.makedirs(checkpoint_dir, exist_ok=True)
-        path = os.path.join(checkpoint_dir, f"model_ep{episode}.json")
+        path = os.path.join(checkpoint_dir, f"model_ep{episode}.pt")
         self.save(path)
-        print(f"[AGENT] Checkpoint saved → {path}")
- 
-    def load(self, path="model.json"):
-        with open(path) as f:
-            data = json.load(f)
-        if "hyperparameters" in data:
-            hp = data["hyperparameters"]
-            self.n_actions     = hp.get("n_actions",     self.n_actions)
-            self.lr            = hp.get("lr",            self.lr)
-            self.gamma         = hp.get("gamma",         self.gamma)
-            self.epsilon       = hp.get("epsilon",       self.epsilon)
-            self.epsilon_min   = hp.get("epsilon_min",   self.epsilon_min)
-            self.epsilon_decay = hp.get("epsilon_decay", self.epsilon_decay)
-            self.q_table = {eval(k): np.array(v) for k, v in data["q_table"].items()}
-            self._last_qtable_size = len(self.q_table)
- 
-            print(f"[AGENT] Model loaded -----------------------------------------------")
-        else:
-            self.q_table = {eval(k): np.array(v) for k, v in data.items()}
-            self._last_qtable_size = len(self.q_table)
-        print(f"[AGENT] Model loaded ← {path} ({len(self.q_table)} states, ε={self.epsilon:.4f})")
+        print(f"[DQN] Checkpoint saved → {path}")
+
+    def load(self, path="model.pt"):
+        """Load a previously saved .pt checkpoint."""
+        checkpoint = torch.load(path, map_location=self.device)
+
+        if "hyperparameters" in checkpoint:
+            hp = checkpoint["hyperparameters"]
+            self.obs_dim            = hp.get("obs_dim",            self.obs_dim)
+            self.n_actions          = hp.get("n_actions",          self.n_actions)
+            self.lr                 = hp.get("lr",                 self.lr)
+            self.gamma              = hp.get("gamma",              self.gamma)
+            self.epsilon            = hp.get("epsilon",            self.epsilon)
+            self.epsilon_min        = hp.get("epsilon_min",        self.epsilon_min)
+            self.epsilon_decay      = hp.get("epsilon_decay",      self.epsilon_decay)
+            self.batch_size         = hp.get("batch_size",         self.batch_size)
+            self.target_update_freq = hp.get("target_update_freq", self.target_update_freq)
+
+        # Rebuild networks with (possibly updated) dims
+        self.online_net = _QNetwork(self.obs_dim, self.n_actions).to(self.device)
+        self.target_net = _QNetwork(self.obs_dim, self.n_actions).to(self.device)
+        self.online_net.load_state_dict(checkpoint["online_net"])
+        self.target_net.load_state_dict(checkpoint["target_net"])
+        self.target_net.eval()
+
+        self.optimizer = optim.Adam(self.online_net.parameters(), lr=self.lr)
+        if "optimizer" in checkpoint:
+            self.optimizer.load_state_dict(checkpoint["optimizer"])
+
+        print(f"[DQN] Model loaded ← {path} (ε={self.epsilon:.4f})")
  
 
 
@@ -713,12 +942,12 @@ ACTION_NAMES = {
     6:  "attack_slot_3",
     7:  "radar_on",
     8:  "radar_off",
-    # 9:  "speed_fullstop",
-    # 10: "speed_creep",
-    # 11: "speed_cruise",
-    # 12: "speed_full",
-    # 13: "speed_flank",
-    9: "move_to_target",
+    9:  "speed_fullstop",
+    10: "speed_creep",
+    11: "speed_cruise",
+    12: "speed_full",
+    13: "speed_flank",
+    14: "move_to_target",
 }
 
 def _parse_start_episode(load_model: str) -> int:
@@ -731,7 +960,7 @@ def _parse_start_episode(load_model: str) -> int:
  
 def train(n_episodes: int, scenario_xml: str = "", load_model: str = None, checkpoint: int = 10):
     env   = CMOEnv()
-    agent = QLearningAgent()
+    agent = DQNAgent()
     
     n_actions = CMOEnv.N_ACTIONS
     start_episode = 0
@@ -743,6 +972,9 @@ def train(n_episodes: int, scenario_xml: str = "", load_model: str = None, check
  
     graph = TrainingGraph(start_episode=start_episode)
     successes = 0
+    epsilon_restarts     = 0
+    MAX_EPSILON_RESTARTS = 3
+    EPSILON_RESET_VALUE  = 0.3
  
     for episode in range(start_episode + 1,start_episode + n_episodes + 1):
         obs, _        = env.reset()
@@ -780,9 +1012,14 @@ def train(n_episodes: int, scenario_xml: str = "", load_model: str = None, check
         agent.decay()
 
         if agent.epsilon <= agent.epsilon_min:
-            print(f"[END] Episode {episode} — Reached the minium epsilon threshold.")
-            agent.save_checkpoint(episode)
-            break
+            if epsilon_restarts >= MAX_EPSILON_RESTARTS:
+                print(f"[END] Episode {episode} — Reached epsilon minimum after {epsilon_restarts} restarts. Training complete.")
+                agent.save_checkpoint(episode)
+                break
+            epsilon_restarts += 1
+            agent.epsilon = EPSILON_RESET_VALUE
+            print(f"[EPSILON RESTART #{epsilon_restarts}/{MAX_EPSILON_RESTARTS}] Episode {episode} — "
+                  f"resetting epsilon to {EPSILON_RESET_VALUE} and continuing training.")
 
         graph.update(
             episode      = episode,
@@ -803,7 +1040,7 @@ def train(n_episodes: int, scenario_xml: str = "", load_model: str = None, check
             agent.save_checkpoint(episode)
  
     env.close()
-    agent.save()
+    agent.save("model.pt")
     graph.save()
     return agent
 
@@ -811,7 +1048,7 @@ def train(n_episodes: int, scenario_xml: str = "", load_model: str = None, check
 def run(model_path: str, n_episodes: int = 10):
     """Run a trained model in the sim — no exploration, no learning."""
     env   = CMOEnv()
-    agent = QLearningAgent()
+    agent = DQNAgent()
     agent.load(model_path)
     agent.epsilon = 0.0  # pure exploitation, no random actions
 
@@ -832,7 +1069,7 @@ def run(model_path: str, n_episodes: int = 10):
     env.close()
 
 if __name__ == "__main__":
-    train(n_episodes=11, load_model=None, checkpoint=10)
+    train(n_episodes=10000, load_model=None, checkpoint=10)
 
     # for running a trained model without training
-    # run(model_path='checkpoints#2/model_ep300.json', n_episodes=1)
+    # run(model_path='checkpoints/model_ep400.pt', n_episodes=1)

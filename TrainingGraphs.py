@@ -217,8 +217,7 @@ class TrainingGraph:
         print(
             f"  [GRAPH] ep={episode} | reward={reward:+.1f} | steps={steps} | "
             f"success={success} ({cumulative_rate:.0%}) | "
-            f"time={duration_s:.1f}s | ε={epsilon:.3f} | top={most_used} | "
-            f"loss={loss_str} | q_mean={qmean_str} | q_max={qmax_str}"
+            f"time={duration_s:.1f}s "
         )
  
     def _save_csv_checkpoint(self, episode: int):
