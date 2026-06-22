@@ -116,6 +116,17 @@ def GetContactCoords(side: str) -> str:
         f"end)()"
     )
 
+def GetUnitCoordsByGuid(guid: str) -> str:
+    return (
+        f"(function() "
+        f"local u = ScenEdit_GetUnit({{guid='{guid}'}}) "
+        f"if u then "
+        f"return {{latitude=u.latitude, longitude=u.longitude}} "
+        f"end "
+        f"return {{error='unit not found'}} "
+        f"end)()"
+    )
+
 
 # Actions --------------------------------------------
 
@@ -190,8 +201,8 @@ def GetScenarioStatus():
 
 def RestartScenario(xml: str) -> str:
     import re
-    safe_xml = re.sub(r'<MessageLog>.*?</MessageLog>', '<MessageLog></MessageLog>', xml, flags=re.DOTALL)
-    Xml = safe_xml.strip().replace('\n', ' ').replace('\r', ' ')
+    
+    Xml = xml.strip().replace('\n', ' ').replace('\r', ' ')
     return (
         f"(function() "
         f"local a = ScenEdit_ImportScenarioFromXML({{XML = [=[{Xml}]=]}}) "
@@ -204,6 +215,13 @@ def Score(side: str) -> str:
         f"(function() "
         f"local score = ScenEdit_GetScore('{side}') "
         f"return {{score=score}} "
+        f"end)()"
+    )
+
+def SetScore(side: str, score: int) -> str:
+    return (
+        f"(function() "
+        f"ScenEdit_SetScore('{side}', {score}) "
         f"end)()"
     )
 
@@ -289,7 +307,7 @@ def GetControllableUnit(side: str) ->str:
         f"if not a or not a.units then "
         f"return {{error='side or units not found'}} "
         f"end "
-        f"local preferred_units = {{'F_801', 'CSGN_9_Long_Beach'}} "
+        f"local preferred_units = {{'F_801', 'CSGN_9_Long_Beach', 'CGN 9 Long Beach', 'F 802 De Zeven Provinciën'}} "
         f"for _, pname in ipairs(preferred_units) do "
         f"for _, unit in pairs(a.units) do "
         f"if unit.name == pname then "

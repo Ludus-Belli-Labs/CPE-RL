@@ -73,21 +73,21 @@ if __name__ == "__main__":
                 
 
 
-                print ("\n>>> Sending 'Get Unit coords' command...")
-                client.send(LuaHandler.GetUnitCoords(unitName, side))
-                unit_coords = client.receive(format='lua_table')
-                # print (f"\n<<< Received unit coords: {unit_coords}")
-                ship_lat = unit_coords['latitude']
-                ship_lon = unit_coords['longitude']
+                # print ("\n>>> Sending 'Get Unit coords' command...")
+                # client.send(LuaHandler.GetUnitCoords(unitName, side))
+                # unit_coords = client.receive(format='lua_table')
+                # # print (f"\n<<< Received unit coords: {unit_coords}")
+                # ship_lat = unit_coords['latitude']
+                # ship_lon = unit_coords['longitude']
 
-                print("\n>>> Sending 'Set Unit Waypoint' command...")
-                wp_lat, wp_lon = random_point_around(ship_lat, ship_lon, radius_km=100)
-                client.send(LuaHandler.SetUnitWaypoint(unitName, side, wp_lat, wp_lon))
-                wp_response = client.receive(format='lua_table')
+                # print("\n>>> Sending 'Set Unit Waypoint' command...")
+                # wp_lat, wp_lon = random_point_around(ship_lat, ship_lon, radius_km=100)
+                # client.send(LuaHandler.SetUnitWaypoint(unitName, side, wp_lat, wp_lon))
+                # wp_response = client.receive(format='lua_table')
 
                 # throttle = 3 # 0 = FullStop, 1 = Creep, 2 = Cruise, 3 = Full, 4 = Flank, 5  = None
 
-                # client.send(LuaHandler.ChangeTimeCompression(3))
+                # client.send(LuaHandler.ChangeTimeCompression(4))
 
                 # print(f"\n >>> Set speed")
                 # client.send(LuaHandler.SetSpeed(unitName, throttle))
@@ -113,9 +113,9 @@ if __name__ == "__main__":
                 # client.send(LuaHandler.GetDamage(unitName))
                 # print(client.receive(format='lua_table'))
 
-                # print(f"\n >>> Set time speed")
-                # client.send(LuaHandler.ChangeTimeCompression(5))
-                # print(client.receive(format='lua_table'))
+                print(f"\n >>> Set time speed")
+                client.send(LuaHandler.ChangeTimeCompression(4))
+                print(client.receive(format='lua_table'))
 
                 # print(f" >>> Get Scenario Info")
                 # client.send(LuaHandler.GetRemainingTime())
@@ -156,13 +156,13 @@ if __name__ == "__main__":
                 client.send(LuaHandler.Score(side))
                 score = client.receive(format='lua_table')
                 print(f"\n<<< Received score: {score}")
-                # if score.get('score') == 20 or score.get('score') == -20:
-                #     xml,name = random_scen()
-                #     print(f"\n >>> Restart Scenario: {name}")
-                #     client.send(LuaHandler.RestartScenario(xml))
-                #     print(client.receive(format='lua_table'))
-                # else:
-                #     print(f"\n Score is not 20")
+                if score.get('score') == 20 or score.get('score') == -20:
+                    xml,name = random_scen()
+                    print(f"\n >>> Restart Scenario: {name}")
+                    client.send(LuaHandler.RestartScenario(xml))
+                    print(client.receive(format='lua_table'))
+                else:
+                    print(f"\n Score is not 20")
 
 
                 # print(f"\n >>> Get Target")
