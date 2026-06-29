@@ -27,4 +27,4 @@ def run(model_path: str, n_episodes: int = 10):
 
 
 if __name__ == "__main__":
-    run(model_path="checkpoints/model_ep180.json", n_episodes=5)
+    run(model_path="checkpoints/model_ep10.json", n_episodes=5)

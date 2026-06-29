@@ -2,12 +2,15 @@ import time
 import numpy as np
 import gymnasium as gym
 from gymnasium import spaces
+import sys
 
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 import CMO_SocketClient
 import LuaHandler
 from RandomScen import random_scen
 
-from RL.Config import (
+from Config import (
     POSTURE_MAP,
     ATTACK_REWARD, ATTACK_PENALTY,
     RADAR_REWARD, RADAR_OFF_REWARD, RADAR_PENALTY,
@@ -17,7 +20,7 @@ from RL.Config import (
     SCENARIO_SUCCESS_REWARD, SCENARIO_FAIL_PENALTY,
     CONTACT_CLASSIFIED_REWARD,
 )
-from RL.Utils import random_point_around, haversine_km
+from Utils import random_point_around, haversine_km
 
 # Environment 
 

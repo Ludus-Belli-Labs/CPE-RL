@@ -1,8 +1,11 @@
+import sys
 import time
 import numpy as np
 import gymnasium as gym
 from gymnasium import spaces
 
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 import CMO_SocketClient
 import LuaHandler
 from RandomScen import random_scen
@@ -116,7 +119,7 @@ class CPEEnv(gym.Env):
     
     # -- What the agent sees -------------------------------------------------
     def _build_obs(self, contacts):
-        obs = np.zeros(16, dtype=np.int64)
+        obs = np.zeros(10, dtype=np.int64)
 
         # 0-3: contact posture codes (0 if no contact in slot)
         for i, c in enumerate(contacts[:4]):

@@ -1,0 +1,1634 @@
+[DQN] Using device: cpu
+Successfully connected to 127.0.0.1:7777
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F_801
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [NO ACTION] Doing nothing this step.
+  [PATROL] First ally distance reading: 5.1 km
+  [MOVE TO ALLY] Civil_HVT → (59.722, 24.904)
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (4.5 km, was 5.2 km) -> +0.2
+  [RADAR OFF] Radar already off. Penalty applied.
+  [PATROL] Closer to ally (3.8 km, was 4.5 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (3.6 km, was 3.8 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (59.722105832612044, 24.904003733989352).
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [CLASSIFY] AEW #1 identified as 'X' → +5.0
+  [BLOCKED] Move action 9 ignored — already en-route to (59.722105832612044, 24.904003733989352).
+  [ATTACK slot=2] No contact in this slot.
+  [WAYPOINT] Reached destination (0.10 km). Movement unlocked.
+  [NO ACTION] Doing nothing this step.
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [IDLE PENALTY] Not moving for 5 steps.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=0] AEW #1 (posture=X) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [MOVE] → (59.765, 24.476)
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [REWARD] +10.0 — hostile destroyed
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (21.9 km, was 21.9 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (21.9 km, was 21.9 km) -> +0.2
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR ON] Radar activated.
+  [BLOCKED] Move action 9 ignored — already en-route to (59.76493923843492, 24.475789474237033).
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (59.76493923843492, 24.475789474237033).
+  [NO ACTION] Doing nothing this step.
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.76493923843492, 24.475789474237033).
+  [BLOCKED] Move action 1 ignored — already en-route to (59.76493923843492, 24.475789474237033).
+  [BLOCKED] Move action 2 ignored — already en-route to (59.76493923843492, 24.475789474237033).
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (59.76493923843492, 24.475789474237033).
+  [WAYPOINT] Reached destination (0.22 km). Movement unlocked.
+  [MOVE] → (58.947, 24.277)
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (58.94711554977033, 24.27719710983976).
+  [BLOCKED] Move action 2 ignored — already en-route to (58.94711554977033, 24.27719710983976).
+  [RADAR ON] Radar activated.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 6 toggles in last 10 steps.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [CLASSIFY] Bomber #2 identified as 'X' → +5.0
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 7 toggles in last 10 steps.
+  [BLOCKED] Move action 9 ignored — already en-route to (58.94711554977033, 24.27719710983976).
+  [NO ACTION] Doing nothing this step.
+  [RADAR ON] Radar already on. Penalty applied.
+  [CLASSIFY] VAMPIRE #3 identified as 'H' → +5.0
+  [CLASSIFY] VAMPIRE #4 identified as 'H' → +5.0
+  [ATTACK slot=1] VAMPIRE #3 (posture=H) → {'status': 'attacking', 'target': 'VAMPIRE #3'}
+  [CLASSIFY] VAMPIRE #6 identified as 'H' → +5.0
+  [REWARD] +10.0 — hostile destroyed
+[TERMINAL] Patrol failed! Ally was hit! Penalty: -150.0
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: LandStrike 1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: CSGN_9_Long_Beach
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Strike
+[RESET] Target guid verified: ZP5M6D-0HNJEUN14J2H6
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+  [GRAPH] ep=1 | reward=-784.1 | steps=70 | success=0 (0%) | time=76.8s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: CSGN_9_Long_Beach
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Strike
+[RESET] Target guid verified: ZP5M6D-0HNJEUN14J2H6
+  [RADAR OFF] Radar deactivated.
+  [CLASSIFY] ACAB identified as 'H' → +5.0
+  [TARGET] First distance reading: 1687.3 km
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [MOVE TO TARGET] → (37.697, -93.011)
+  [ATTACK slot=1] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1686.5 km, was 1687.3 km)
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1685.0 km, was 1686.5 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1683.5 km, was 1685.0 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1680.5 km, was 1683.5 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1679.9 km, was 1680.5 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1679.9 km, was 1679.9 km)
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1679.8 km, was 1679.9 km)
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=3] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1678.7 km, was 1679.8 km)
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1677.1 km, was 1678.7 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1672.5 km, was 1677.1 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1671.0 km, was 1672.5 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1669.6 km, was 1671.0 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1669.6 km, was 1669.6 km)
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1669.3 km, was 1669.6 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [RADAR OFF] Radar deactivated.
+  [REWARD] +0.2 — closer to target (1669.3 km, was 1669.3 km)
+  [NO ACTION] Doing nothing this step.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1668.2 km, was 1669.3 km)
+  [RADAR OFF] Radar already off. Penalty applied.
+  [REWARD] +0.2 — closer to target (1667.6 km, was 1668.2 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1667.5 km, was 1667.6 km)
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 6 toggles in last 10 steps.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 7 toggles in last 10 steps.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=3] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 8 toggles in last 10 steps.
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 9 toggles in last 10 steps.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [NO ACTION] Doing nothing this step.
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 10 toggles in last 10 steps.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1666.4 km, was 1667.5 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1663.3 km, was 1666.4 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1661.7 km, was 1663.3 km)
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 11 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1660.2 km, was 1661.7 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1658.6 km, was 1660.2 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 12 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1655.6 km, was 1658.6 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1654.0 km, was 1655.6 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [BLOCKED] Move action 9 ignored — already en-route to (37.6966666666667, -93.0111111111111).
+  [TARGET] Could not get coords for guid=ZP5M6D-0HNJEUN14J2H6.
+  [TARGET] Could not get coords for guid=ZP5M6D-0HNJEUN14J2H6.
+[TERMINAL] Scenario complete! 03:38:01 left → -15.7 + 100.0 = 84.3 reward
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: LandStrike 1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: CSGN_9_Long_Beach
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Strike
+[RESET] Target guid verified: ZP5M6D-0HNJEUN14J2H6
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+  [GRAPH] ep=2 | reward=-1049.4 | steps=131 | success=1 (50%) | time=140.4s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: CSGN_9_Long_Beach
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Strike
+[RESET] Target guid verified: ZP5M6D-0HNJEUN14J2H6
+  [CLASSIFY] ACAB identified as 'H' → +5.0
+  [TARGET] First distance reading: 1687.3 km
+  [MOVE] → (34.324, -75.311)
+  [REWARD] +0.2 — closer to target (1686.8 km, was 1687.3 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1685.6 km, was 1686.8 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1684.4 km, was 1685.6 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1683.2 km, was 1684.4 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1682.0 km, was 1683.2 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [BLOCKED] Move action 9 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1678.4 km, was 1682.0 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1677.3 km, was 1678.4 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1676.1 km, was 1677.3 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1673.7 km, was 1676.1 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1672.5 km, was 1673.7 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1671.3 km, was 1672.5 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [BLOCKED] Move action 1 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1667.7 km, was 1671.3 km)
+  [RADAR OFF] Radar deactivated.
+  [REWARD] +0.2 — closer to target (1666.6 km, was 1667.7 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1664.2 km, was 1666.6 km)
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1663.0 km, was 1664.2 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1660.6 km, was 1663.0 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1659.4 km, was 1660.6 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1657.0 km, was 1659.4 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1655.9 km, was 1657.0 km)
+  [RADAR OFF] Radar already off. Penalty applied.
+  [REWARD] +0.2 — closer to target (1654.7 km, was 1655.9 km)
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1653.5 km, was 1654.7 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1652.3 km, was 1653.5 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [RADAR OFF] Radar already off. Penalty applied.
+  [REWARD] +0.2 — closer to target (1649.9 km, was 1652.3 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [BLOCKED] Move action 1 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [BLOCKED] Move action 2 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [BLOCKED] Move action 9 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1644.0 km, was 1649.9 km)
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1642.8 km, was 1644.0 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1641.6 km, was 1642.8 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1640.4 km, was 1641.6 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1639.2 km, was 1640.4 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [BLOCKED] Move action 9 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1635.7 km, was 1639.2 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (34.32360907199359, -75.31080517985787).
+  [RADAR ON] Radar activated.
+  [WAYPOINT] Reached destination (0.36 km). Movement unlocked.
+  [REWARD] +0.2 — closer to target (1633.3 km, was 1635.7 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1631.8 km, was 1633.3 km)
+  [REWARD] +0.2 — closer to target (1630.2 km, was 1631.8 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1628.7 km, was 1630.2 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1627.2 km, was 1628.7 km)
+  [ATTACK slot=2] No contact in this slot.
+  [IDLE PENALTY] Not moving for 5 steps.
+  [REWARD] +0.2 — closer to target (1625.6 km, was 1627.2 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1624.1 km, was 1625.6 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1622.5 km, was 1624.1 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1621.0 km, was 1622.5 km)
+  [REWARD] +0.2 — closer to target (1619.5 km, was 1621.0 km)
+  [ATTACK slot=3] No contact in this slot.
+  [IDLE PENALTY] Not moving for 5 steps.
+  [REWARD] +0.2 — closer to target (1617.9 km, was 1619.5 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1616.4 km, was 1617.9 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1614.8 km, was 1616.4 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1613.3 km, was 1614.8 km)
+  [MOVE] → (33.768, -75.743)
+  [REWARD] +0.2 — closer to target (1612.9 km, was 1613.3 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (33.76753970822878, -75.74308434601042).
+  [BLOCKED] Move action 2 ignored — already en-route to (33.76753970822878, -75.74308434601042).
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1612.6 km, was 1612.9 km)
+  [ATTACK slot=0] ACAB (posture=H) → {'status': 'attacking', 'target': 'ACAB'}
+  [ATTACK] Contact still alive
+  [REWARD] -0.2 — further from target (1612.6 km, was 1612.6 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] -0.2 — further from target (1612.6 km, was 1612.6 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] -0.2 — further from target (1612.7 km, was 1612.6 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] -0.2 — further from target (1612.7 km, was 1612.7 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] -0.2 — further from target (1612.8 km, was 1612.7 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (33.76753970822878, -75.74308434601042).
+  [BLOCKED] Move action 1 ignored — already en-route to (33.76753970822878, -75.74308434601042).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] -0.2 — further from target (1612.9 km, was 1612.8 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] -0.2 — further from target (1613.0 km, was 1612.9 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (33.76753970822878, -75.74308434601042).
+  [ATTACK slot=2] No contact in this slot.
+  [TARGET] Could not get coords for guid=ZP5M6D-0HNJEUN14J2H6.
+  [TARGET] Could not get coords for guid=ZP5M6D-0HNJEUN14J2H6.
+  [REWARD] +25.0 — mission target destroyed!
+[TERMINAL] Scenario complete! 05:30:01 left → -9.0 + 100.0 = 91.0 reward
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Test1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+[DQN] Target network synced at episode 3
+[DQN] Paused simulation for network syncing...
+  [GRAPH] ep=3 | reward=-498.1 | steps=75 | success=1 (67%) | time=83.7s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:53:11
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] First ally distance reading: 46.3 km
+  [MOVE] → (36.404, 20.651)
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (36.40364054986201, 20.650603724414772).
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.40364054986201, 20.650603724414772).
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (36.40364054986201, 20.650603724414772).
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.40364054986201, 20.650603724414772).
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (36.40364054986201, 20.650603724414772).
+  [BLOCKED] Move action 2 ignored — already en-route to (36.40364054986201, 20.650603724414772).
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 11 steps without contact.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR PENALTY] On for 12 steps without contact.
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR PENALTY] On for 13 steps without contact.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR PENALTY] On for 14 steps without contact.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR PENALTY] On for 15 steps without contact.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR PENALTY] On for 16 steps without contact.
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 17 steps without contact.
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR PENALTY] On for 18 steps without contact.
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.40364054986201, 20.650603724414772).
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [RADAR ON] Radar activated.
+  [WAYPOINT] Reached destination (0.20 km). Movement unlocked.
+  [ATTACK slot=0] No contact in this slot.
+  [MOVE] → (36.618, 20.439)
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [CLASSIFY] BOGEY #1 identified as 'X' → +5.0
+  [ATTACK slot=1] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (36.61753094369247, 20.438574348981014).
+  [BLOCKED] Move action 2 ignored — already en-route to (36.61753094369247, 20.438574348981014).
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR ON] Radar already on. Penalty applied.
+  [BLOCKED] Move action 9 ignored — already en-route to (36.61753094369247, 20.438574348981014).
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=0] BOGEY #1 (posture=H) → {'status': 'attacking', 'target': 'BOGEY #1'}
+  [ATTACK] Contact still alive
+[TERMINAL] Patrol failed! Ally was hit! Penalty: -150.0
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Escort2
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F_801
+[RESET] Time limit verified: 07:59:57
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+  [GRAPH] ep=4 | reward=-863.6 | steps=60 | success=0 (50%) | time=66.9s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F_801
+[RESET] Time limit verified: 07:59:57
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] First ally distance reading: 5.1 km
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (5.1 km, was 5.1 km) -> +0.2
+  [MOVE] → (59.777, 26.321)
+  [BLOCKED] Move action 1 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [RADAR ON] Radar activated.
+  [RADAR OFF] Radar deactivated.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=2] No contact in this slot.
+  [CLASSIFY] AEW #1 identified as 'X' → +5.0
+  [RADAR OFF] Radar already off. Penalty applied.
+  [BLOCKED] Move action 1 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [BLOCKED] Move action 9 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=1] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 1 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [BLOCKED] Move action 9 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [BLOCKED] Move action 9 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=0] AEW #1 (posture=X) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 6 toggles in last 10 steps.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [BLOCKED] Move action 1 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 7 toggles in last 10 steps.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 8 toggles in last 10 steps.
+  [NO ACTION] Doing nothing this step.
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 9 toggles in last 10 steps.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 10 toggles in last 10 steps.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [NO ACTION] Doing nothing this step.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [BLOCKED] Move action 9 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [NO ACTION] Doing nothing this step.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 11 toggles in last 10 steps.
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 12 toggles in last 10 steps.
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [BLOCKED] Move action 1 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.776932332586334, 26.320715215753417).
+  [ATTACK slot=0] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=0] No contact in this slot.
+  [WAYPOINT] Reached destination (0.77 km). Movement unlocked.
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [IDLE PENALTY] Not moving for 5 steps.
+  [MOVE TO ALLY] Civil_HVT → (59.578, 23.294)
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 2 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (167.4 km, was 167.4 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (167.3 km, was 167.4 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 2 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 9 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (167.1 km, was 167.3 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 13 toggles in last 10 steps.
+  [PATROL] Closer to ally (167.0 km, was 167.1 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (166.8 km, was 167.0 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (166.8 km, was 166.8 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (166.7 km, was 166.8 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (166.6 km, was 166.7 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 9 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (166.5 km, was 166.6 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (166.5 km, was 166.5 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (166.4 km, was 166.5 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (166.4 km, was 166.4 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (166.4 km, was 166.4 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR PENALTY] On for 11 steps without contact.
+  [PATROL] Closer to ally (166.3 km, was 166.4 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 12 steps without contact.
+  [PATROL] Closer to ally (166.3 km, was 166.3 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 9 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR PENALTY] On for 13 steps without contact.
+  [PATROL] Closer to ally (166.1 km, was 166.3 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR PENALTY] On for 14 steps without contact.
+  [PATROL] Closer to ally (166.1 km, was 166.1 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR PENALTY] On for 15 steps without contact.
+  [PATROL] Closer to ally (166.0 km, was 166.1 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 16 steps without contact.
+  [PATROL] Closer to ally (166.0 km, was 166.0 km) -> +0.2
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (166.0 km, was 166.0 km) -> +0.2
+  [RADAR ON] Radar activated.
+  [PATROL] Closer to ally (166.0 km, was 166.0 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (165.9 km, was 166.0 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (165.9 km, was 165.9 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (165.9 km, was 165.9 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (165.9 km, was 165.9 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (165.8 km, was 165.9 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (165.8 km, was 165.8 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (165.8 km, was 165.8 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (165.8 km, was 165.8 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (165.8 km, was 165.8 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (165.7 km, was 165.8 km) -> +0.2
+  [RADAR OFF] Radar already off. Penalty applied.
+  [PATROL] Closer to ally (165.7 km, was 165.7 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (165.7 km, was 165.7 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (59.577883993345644, 23.29360945349241).
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (165.7 km, was 165.7 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (165.7 km, was 165.7 km) -> +0.2
+  [RADAR ON] Radar activated.
+  [PATROL] Closer to ally (165.7 km, was 165.7 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (165.7 km, was 165.7 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (165.7 km, was 165.7 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR ON] Radar already on. Penalty applied.
+[TERMINAL] Patrol FAILED! Merchant reached destination but agent was 165.7 km away.
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Test1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+  [GRAPH] ep=5 | reward=-1295.8 | steps=146 | success=0 (40%) | time=155.5s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] First ally distance reading: 42.9 km
+  [ATTACK slot=2] No contact in this slot.
+  [MOVE] → (36.794, 21.655)
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=2] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [NO ACTION] Doing nothing this step.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR PENALTY] On for 11 steps without contact.
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 12 steps without contact.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR PENALTY] On for 13 steps without contact.
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR PENALTY] On for 14 steps without contact.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR PENALTY] On for 15 steps without contact.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR PENALTY] On for 16 steps without contact.
+  [RADAR ON] Radar already on. Penalty applied.
+  [RADAR PENALTY] On for 17 steps without contact.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=0] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR ON] Radar activated.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [BLOCKED] Move action 9 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR ON] Radar already on. Penalty applied.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [BLOCKED] Move action 2 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [RADAR ON] Radar already on. Penalty applied.
+  [BLOCKED] Move action 2 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [RADAR ON] Radar activated.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=3] No contact in this slot.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=0] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=0] No contact in this slot.
+  [BLOCKED] Move action 9 ignored — already en-route to (36.79404970165472, 21.654763104303875).
+[TERMINAL] Patrol failed! Ally was hit! Penalty: -150.0
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Test2
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: CGN 9 Long Beach
+[RESET] Time limit verified: 08:00:00
+[RESET] Mission type verified: Strike
+[RESET] Target guid verified: ZP5M6D-0HNLNPC4RD05D
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+[DQN] Target network synced at episode 6
+[DQN] Paused simulation for network syncing...
+  [GRAPH] ep=6 | reward=-864.6 | steps=65 | success=0 (33%) | time=73.4s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: CGN 9 Long Beach
+[RESET] Time limit verified: 07:52:50
+[RESET] Mission type verified: Strike
+[RESET] Target guid verified: ZP5M6D-0HNLNPC4RD05D
+  [ATTACK slot=1] No contact in this slot.
+  [TARGET] First distance reading: 1409.4 km
+  [MOVE] → (6.557, 82.697)
+  [REWARD] +0.2 — closer to target (1408.8 km, was 1409.4 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1407.4 km, was 1408.8 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [RADAR ON] Radar activated.
+  [REWARD] +0.2 — closer to target (1406.0 km, was 1407.4 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1404.6 km, was 1406.0 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1403.9 km, was 1404.6 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [BLOCKED] Move action 1 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [BLOCKED] Move action 1 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1401.0 km, was 1403.9 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1400.3 km, was 1401.0 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1399.6 km, was 1400.3 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1398.9 km, was 1399.6 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1398.2 km, was 1398.9 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1397.5 km, was 1398.2 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1396.8 km, was 1397.5 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1396.1 km, was 1396.8 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1394.7 km, was 1396.1 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1393.3 km, was 1394.7 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1392.6 km, was 1393.3 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1391.2 km, was 1392.6 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1390.5 km, was 1391.2 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1389.8 km, was 1390.5 km)
+  [RADAR OFF] Radar deactivated.
+  [REWARD] +0.2 — closer to target (1389.1 km, was 1389.8 km)
+  [RADAR OFF] Radar already off. Penalty applied.
+  [REWARD] +0.2 — closer to target (1388.4 km, was 1389.1 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1387.7 km, was 1388.4 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1387.0 km, was 1387.7 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1386.3 km, was 1387.0 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [BLOCKED] Move action 9 ignored — already en-route to (6.557376619195313, 82.69732857932145).
+  [WAYPOINT] Reached destination (0.88 km). Movement unlocked.
+  [MOVE] → (6.165, 83.012)
+  [REWARD] +0.2 — closer to target (1384.1 km, was 1386.3 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1382.6 km, was 1384.1 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1381.0 km, was 1382.6 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1377.9 km, was 1381.0 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1376.4 km, was 1377.9 km)
+  [RADAR OFF] Radar already off. Penalty applied.
+  [REWARD] +0.2 — closer to target (1374.9 km, was 1376.4 km)
+  [RADAR ON] Radar activated.
+  [REWARD] +0.2 — closer to target (1373.3 km, was 1374.9 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1368.7 km, was 1373.3 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1367.1 km, was 1368.7 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1364.1 km, was 1367.1 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1359.4 km, was 1364.1 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [BLOCKED] Move action 9 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1354.8 km, was 1359.4 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [RADAR OFF] Radar deactivated.
+  [REWARD] +0.2 — closer to target (1351.7 km, was 1354.8 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1348.6 km, was 1351.7 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1347.1 km, was 1348.6 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1345.5 km, was 1347.1 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1344.0 km, was 1345.5 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1342.5 km, was 1344.0 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1340.9 km, was 1342.5 km)
+  [RADAR ON] Radar activated.
+  [REWARD] +0.2 — closer to target (1339.4 km, was 1340.9 km)
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 6 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1337.8 km, was 1339.4 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1336.3 km, was 1337.8 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1334.7 km, was 1336.3 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 7 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1328.6 km, was 1334.7 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1325.5 km, was 1328.6 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1322.4 km, was 1325.5 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1320.9 km, was 1322.4 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1319.3 km, was 1320.9 km)
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 8 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1317.8 km, was 1319.3 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1316.2 km, was 1317.8 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1314.7 km, was 1316.2 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1313.2 km, was 1314.7 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1311.6 km, was 1313.2 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1310.1 km, was 1311.6 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1307.0 km, was 1310.1 km)
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 9 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1305.4 km, was 1307.0 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1303.9 km, was 1305.4 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1302.4 km, was 1303.9 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1300.8 km, was 1302.4 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1299.3 km, was 1300.8 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1297.7 km, was 1299.3 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1296.2 km, was 1297.7 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1294.6 km, was 1296.2 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1291.6 km, was 1294.6 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1290.0 km, was 1291.6 km)
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 10 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1288.5 km, was 1290.0 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1286.9 km, was 1288.5 km)
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 11 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1285.4 km, was 1286.9 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1282.3 km, was 1285.4 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1280.8 km, was 1282.3 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1279.2 km, was 1280.8 km)
+  [ATTACK slot=2] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1277.7 km, was 1279.2 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1276.1 km, was 1277.7 km)
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 12 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1274.6 km, was 1276.1 km)
+  [BLOCKED] Move action 1 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [BLOCKED] Move action 9 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1270.0 km, was 1274.6 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1268.4 km, was 1270.0 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1266.9 km, was 1268.4 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1265.3 km, was 1266.9 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1260.7 km, was 1265.3 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1259.2 km, was 1260.7 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1257.6 km, was 1259.2 km)
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 13 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1256.1 km, was 1257.6 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1254.5 km, was 1256.1 km)
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1253.0 km, was 1254.5 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1251.4 km, was 1253.0 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1249.9 km, was 1251.4 km)
+  [RADAR ON] Radar already on. Penalty applied.
+  [REWARD] +0.2 — closer to target (1248.4 km, was 1249.9 km)
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 14 toggles in last 10 steps.
+  [REWARD] +0.2 — closer to target (1246.8 km, was 1248.4 km)
+  [NO ACTION] Doing nothing this step.
+  [REWARD] +0.2 — closer to target (1245.3 km, was 1246.8 km)
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1243.7 km, was 1245.3 km)
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1242.2 km, was 1243.7 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=3] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1239.1 km, was 1242.2 km)
+  [BLOCKED] Move action 9 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=1] No contact in this slot.
+  [REWARD] +0.2 — closer to target (1236.0 km, was 1239.1 km)
+  [BLOCKED] Move action 2 ignored — already en-route to (6.164691370320291, 83.01183746428906).
+  [ATTACK slot=0] Building (Radio/TV Station) (posture=H) → {'status': 'attacking', 'target': 'Building (Radio/TV Station)'}
+  [ATTACK] Contact still alive
+  [REWARD] +0.2 — closer to target (1232.9 km, was 1236.0 km)
+  [RADAR OFF] Radar already off. Penalty applied.
+  [TARGET] Could not get coords for guid=ZP5M6D-0HNLNPC4RD05D.
+  [TARGET] Could not get coords for guid=ZP5M6D-0HNLNPC4RD05D.
+  [REWARD] +25.0 — mission target destroyed!
+[TERMINAL] Scenario complete! 03:15:44 left → -16.6 + 100.0 = 83.4 reward
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Test1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+  [GRAPH] ep=7 | reward=-915.9 | steps=136 | success=1 (43%) | time=144.0s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] First ally distance reading: 42.9 km
+  [MOVE TO ALLY] Commercial Supply Vessel [6,000t DWT] → (35.921, 21.316)
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (43.2 km, was 43.4 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (42.8 km, was 43.2 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [RADAR ON] Radar activated.
+  [PATROL] Closer to ally (41.9 km, was 42.8 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (41.5 km, was 41.9 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (41.1 km, was 41.5 km) -> +0.2
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (40.8 km, was 41.1 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (40.4 km, was 40.8 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (39.7 km, was 40.4 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (39.4 km, was 39.7 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 9 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (38.1 km, was 39.4 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 2 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [RADAR ON] Radar activated.
+  [PATROL] Closer to ally (37.3 km, was 38.1 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (37.1 km, was 37.3 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (37.0 km, was 37.1 km) -> +0.2
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (36.9 km, was 37.0 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (36.8 km, was 36.9 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (36.7 km, was 36.8 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (36.7 km, was 36.7 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 2 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 9 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (36.6 km, was 36.7 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 1 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [RADAR ON] Radar activated.
+  [BLOCKED] Move action 2 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [BLOCKED] Move action 2 ignored — already en-route to (35.92146516378903, 21.31600511570971).
+  [NO ACTION] Doing nothing this step.
+  [WAYPOINT] Reached destination (0.05 km). Movement unlocked.
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 6 toggles in last 10 steps.
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 7 toggles in last 10 steps.
+  [RADAR ON] Radar already on. Penalty applied.
+  [MOVE] → (36.150, 20.717)
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+  [BLOCKED] Move action 9 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [RADAR SPAM PENALTY] 8 toggles in last 10 steps.
+  [NO ACTION] Doing nothing this step.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+  [BLOCKED] Move action 9 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+  [RADAR ON] Radar activated.
+  [RADAR SPAM PENALTY] 9 toggles in last 10 steps.
+  [CLASSIFY] BOGEY #1 identified as 'X' → +5.0
+  [BLOCKED] Move action 2 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+  [BLOCKED] Move action 9 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+  [ATTACK slot=0] BOGEY #1 (posture=X) → {'status': 'attacking', 'target': 'BOGEY #1'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [CLASSIFY] VAMPIRE #2 identified as 'H' → +5.0
+  [CLASSIFY] VAMPIRE #3 identified as 'H' → +5.0
+  [RADAR ON] Radar already on. Penalty applied.
+  [BLOCKED] Move action 1 ignored — already en-route to (36.14989993507338, 20.716945478664375).
+[TERMINAL] Patrol failed! Ally was hit! Penalty: -150.0
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Test1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+  [GRAPH] ep=8 | reward=-636.2 | steps=65 | success=0 (38%) | time=71.9s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [MOVE TO ALLY] Commercial Supply Vessel [6,000t DWT] → (35.906, 21.421)
+  [PATROL] First ally distance reading: 42.7 km
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (42.2 km, was 42.7 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (41.8 km, was 42.2 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (41.3 km, was 41.8 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (40.9 km, was 41.3 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (38.8 km, was 40.9 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (38.4 km, was 38.8 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (38.1 km, was 38.4 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (37.7 km, was 38.1 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (37.3 km, was 37.7 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (37.0 km, was 37.3 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (35.4 km, was 37.0 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (34.3 km, was 35.4 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (34.0 km, was 34.3 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [RADAR ON] Radar activated.
+  [PATROL] Closer to ally (33.5 km, was 34.0 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (33.3 km, was 33.5 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (33.1 km, was 33.3 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (32.9 km, was 33.1 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (32.6 km, was 32.9 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [PATROL] Closer to ally (32.5 km, was 32.6 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (32.3 km, was 32.5 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (32.2 km, was 32.3 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (32.0 km, was 32.2 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (31.9 km, was 32.0 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (31.8 km, was 31.9 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.90640587946457, 21.42140181678408).
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (31.8 km, was 31.8 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [WAYPOINT] Reached destination (0.38 km). Movement unlocked.
+  [PATROL] Closer to ally (31.8 km, was 31.8 km) -> +0.2
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR ON] Radar activated.
+  [ATTACK slot=3] No contact in this slot.
+  [MOVE TO ALLY] Commercial Supply Vessel [6,000t DWT] → (35.746, 21.742)
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (33.9 km, was 34.1 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (35.745857581535454, 21.742053291435152).
+  [NO ACTION] Doing nothing this step.
+  [CLASSIFY] BOGEY #1 identified as 'X' → +5.0
+  [PATROL] Closer to ally (33.6 km, was 33.9 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (33.4 km, was 33.6 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (33.3 km, was 33.4 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.745857581535454, 21.742053291435152).
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (33.0 km, was 33.3 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (35.745857581535454, 21.742053291435152).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.745857581535454, 21.742053291435152).
+  [ATTACK slot=0] BOGEY #1 (posture=X) → {'status': 'attacking', 'target': 'BOGEY #1'}
+  [ATTACK] Contact still alive
+  [PATROL] Closer to ally (32.6 km, was 33.0 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (32.4 km, was 32.6 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (32.3 km, was 32.4 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (32.2 km, was 32.3 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (32.0 km, was 32.2 km) -> +0.2
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (31.9 km, was 32.0 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (31.8 km, was 31.9 km) -> +0.2
+  [RADAR OFF] Radar already off. Penalty applied.
+  [PATROL] Closer to ally (31.7 km, was 31.8 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.745857581535454, 21.742053291435152).
+[TERMINAL] Patrol failed! Ally was hit! Penalty: -150.0
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Test1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+[DQN] Target network synced at episode 9
+[DQN] Paused simulation for network syncing...
+  [GRAPH] ep=9 | reward=-708.8 | steps=65 | success=0 (33%) | time=73.5s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:53:46
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [RADAR OFF] Radar already off. Penalty applied.
+  [PATROL] First ally distance reading: 46.2 km
+  [MOVE TO ALLY] Commercial Supply Vessel [6,000t DWT] → (35.947, 21.409)
+  [BLOCKED] Move action 1 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [BLOCKED] Move action 9 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [BLOCKED] Move action 9 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (44.5 km, was 46.9 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [RADAR ON] Radar activated.
+  [PATROL] Closer to ally (43.7 km, was 44.5 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (43.4 km, was 43.7 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (43.1 km, was 43.4 km) -> +0.2
+  [BLOCKED] Move action 1 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (42.4 km, was 43.1 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (42.1 km, was 42.4 km) -> +0.2
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (41.8 km, was 42.1 km) -> +0.2
+  [RADAR OFF] Radar deactivated.
+  [PATROL] Closer to ally (41.5 km, was 41.8 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (41.2 km, was 41.5 km) -> +0.2
+  [RADAR OFF] Radar already off. Penalty applied.
+  [PATROL] Closer to ally (40.9 km, was 41.2 km) -> +0.2
+  [RADAR ON] Radar activated.
+  [PATROL] Closer to ally (40.6 km, was 40.9 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [PATROL] Closer to ally (40.3 km, was 40.6 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (40.1 km, was 40.3 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (39.8 km, was 40.1 km) -> +0.2
+  [BLOCKED] Move action 2 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (39.3 km, was 39.8 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (39.1 km, was 39.3 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [PATROL] Closer to ally (38.9 km, was 39.1 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (38.7 km, was 38.9 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [RADAR ON] Radar already on. Penalty applied.
+  [PATROL] Closer to ally (38.3 km, was 38.7 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] Closer to ally (38.1 km, was 38.3 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 11 steps without contact.
+  [PATROL] Closer to ally (37.9 km, was 38.1 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR PENALTY] On for 12 steps without contact.
+  [PATROL] Closer to ally (37.8 km, was 37.9 km) -> +0.2
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 13 steps without contact.
+  [PATROL] Closer to ally (37.6 km, was 37.8 km) -> +0.2
+  [BLOCKED] Move action 9 ignored — already en-route to (35.946994185297605, 21.408830964216925).
+  [NO ACTION] Doing nothing this step.
+  [RADAR PENALTY] On for 14 steps without contact.
+  [PATROL] Closer to ally (37.4 km, was 37.6 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR PENALTY] On for 15 steps without contact.
+  [PATROL] Closer to ally (37.3 km, was 37.4 km) -> +0.2
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR PENALTY] On for 16 steps without contact.
+  [PATROL] Closer to ally (37.2 km, was 37.3 km) -> +0.2
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR PENALTY] On for 17 steps without contact.
+  [WAYPOINT] Reached destination (0.82 km). Movement unlocked.
+  [PATROL] Closer to ally (37.1 km, was 37.2 km) -> +0.2
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR PENALTY] On for 18 steps without contact.
+  [ATTACK slot=3] No contact in this slot.
+  [RADAR PENALTY] On for 19 steps without contact.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR PENALTY] On for 20 steps without contact.
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR PENALTY] On for 21 steps without contact.
+  [RADAR OFF] Radar deactivated.
+  [IDLE PENALTY] Not moving for 5 steps.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=3] No contact in this slot.
+  [MOVE] → (35.995, 20.701)
+  [ATTACK slot=1] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (35.99506552920706, 20.70090929296655).
+  [RADAR ON] Radar activated.
+  [CLASSIFY] BOGEY #1 identified as 'X' → +5.0
+  [RADAR ON] Radar already on. Penalty applied.
+  [ATTACK slot=2] No contact in this slot.
+  [ATTACK slot=0] BOGEY #1 (posture=H) → {'status': 'attacking', 'target': 'BOGEY #1'}
+  [CLASSIFY] VAMPIRE #2 identified as 'H' → +5.0
+  [CLASSIFY] VAMPIRE #3 identified as 'H' → +5.0
+  [ATTACK] Contact still alive
+  [BLOCKED] Move action 2 ignored — already en-route to (35.99506552920706, 20.70090929296655).
+  [BLOCKED] Move action 1 ignored — already en-route to (35.99506552920706, 20.70090929296655).
+  [ATTACK slot=2] VAMPIRE #3 (posture=H) → {'status': 'attacking', 'target': 'VAMPIRE #3'}
+  [REWARD] +10.0 — hostile destroyed
+[TERMINAL] Patrol failed! Ally was hit! Penalty: -150.0
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Escort1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F_801
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+[GRAPH] CSV checkpoint saved → csv_checkpoints\training_log_ep10.csv
+  [GRAPH] ep=10 | reward=-647.5 | steps=60 | success=0 (30%) | time=66.9s
+[DQN] Model saved → checkpoints\model_ep10.json (ε=0.9511, buffer=873)
+[DQN] Checkpoint saved → checkpoints\model_ep10.json
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F_801
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [MOVE] → (59.233, 24.566)
+  [PATROL] First ally distance reading: 5.1 km
+  [ATTACK slot=3] No contact in this slot.
+  [PATROL] Closer to ally (5.1 km, was 5.1 km) -> +0.2
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=2] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [BLOCKED] Move action 9 ignored — already en-route to (59.23331920618141, 24.56593814925496).
+  [BLOCKED] Move action 9 ignored — already en-route to (59.23331920618141, 24.56593814925496).
+  [ATTACK slot=2] No contact in this slot.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.23331920618141, 24.56593814925496).
+  [RADAR ON] Radar activated.
+  [CLASSIFY] BOGEY #1 identified as 'X' → +5.0
+  [NO ACTION] Doing nothing this step.
+  [ATTACK slot=1] No contact in this slot.
+  [RADAR OFF] Radar deactivated.
+  [BLOCKED] Move action 2 ignored — already en-route to (59.23331920618141, 24.56593814925496).
+  [ATTACK slot=3] No contact in this slot.
+  [ATTACK slot=3] No contact in this slot.
+  [BLOCKED] Move action 1 ignored — already en-route to (59.23331920618141, 24.56593814925496).
+  [BLOCKED] Move action 1 ignored — already en-route to (59.23331920618141, 24.56593814925496).
+  [RADAR OFF] Radar already off. Penalty applied.
+  [CLASSIFY] VAMPIRE #3 identified as 'H' → +5.0
+  [CLASSIFY] VAMPIRE #4 identified as 'H' → +5.0
+  [ATTACK slot=0] Bomber #2 (posture=H) → {'status': 'attacking', 'target': 'Bomber #2'}
+  [ATTACK] Contact still alive
+[TERMINAL] Patrol failed! Ally was hit! Penalty: -150.0
+-- Loading new scenario -------------------------------------------------------------------
+
+[RESTART] Reload attempt 1/5
+[RESTART] Scenario: Test1
+Connection closed.
+Successfully connected to 127.0.0.1:7777
+Reconnected.
+[RESTART] Waiting for score to reset...
+[RESTART] Score verified at 0 after 1 attempt(s)
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+[RESTART] ✓ Scenario ready after 1 attempt(s)
+  [GRAPH] ep=11 | reward=-305.2 | steps=20 | success=0 (27%) | time=28.0s
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F 802 De Zeven Provinciën
+[RESET] Time limit verified: 23:59:59
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [ATTACK slot=2] No contact in this slot.
+  [PATROL] First ally distance reading: 42.9 km
+  [ATTACK slot=0] No contact in this slot.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [ATTACK slot=0] No contact in this slot.

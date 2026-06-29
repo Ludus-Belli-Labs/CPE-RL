@@ -1,0 +1,11 @@
+episode,total_reward,step_count,success,success_rate,duration_s,epsilon,action_0_count,action_1_count,action_2_count,action_3_count,action_4_count,action_5_count,action_6_count,action_7_count,action_8_count,action_9_count,action_10_count,action_11_count,action_12_count,action_13_count,action_14_count,most_used_action,scenario,loss,q_mean,q_max
+1,-218.5,28,0,0.0,34.28,0.995,6,1,0,1,3,0,2,1,2,3,1,2,1,3,2,nothing,1,,,
+2,22.3,37,1,0.5,45.09,0.99003,3,4,5,3,3,0,2,4,2,0,0,4,4,1,2,move_to_ally,LandStrike 1,,,
+3,-117.2,59,1,0.6667,65.48,0.98507,1,3,5,1,2,4,3,1,3,9,3,6,5,9,4,speed_fullstop,Escort2,,,
+4,-185.1,59,1,0.75,65.79,0.98015,3,4,7,6,1,4,2,3,3,3,5,6,4,3,5,move_to_ally,Escort2,,,
+5,-240.0,26,0,0.6,32.23,0.97525,3,1,0,1,3,1,2,0,3,1,3,2,1,3,2,nothing,Test1,,,
+6,-200.1,59,1,0.6667,67.43,0.97037,3,2,4,5,3,4,3,6,5,5,5,4,2,3,5,radar_on,Escort2,,,
+7,-139.5,8,0,0.5714,14.1,0.96552,1,1,0,0,0,1,1,0,1,0,1,1,0,0,1,nothing,Escort1,,,
+8,-7.3,26,1,0.625,32.21,0.96069,3,1,1,2,2,1,2,0,6,1,4,1,1,1,0,radar_off,Escort1,,,
+9,-159.5,8,0,0.5556,14.07,0.95589,2,0,1,1,0,2,0,0,1,0,0,0,0,1,0,nothing,Escort1,,,
+10,-159.5,9,0,0.5,15.1,0.95111,0,1,0,1,0,2,1,1,0,0,0,0,2,1,0,attack_slot_2,Escort2,,,

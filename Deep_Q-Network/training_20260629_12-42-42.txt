@@ -1,0 +1,39 @@
+[DQN] Using device: cpu
+[DQN] Model loaded ← checkpoints/model_ep10.json (ε=0.9511)
+Successfully connected to 127.0.0.1:7777
+[RESET] Time compression set to 3
+[RESET] Initial score: {'score': 0}
+[RESET] Unit: F_801
+[RESET] Time limit verified: 08:00:01
+[RESET] Mission type verified: Patrol
+[RESET] Target guid verified: None
+  [RADAR OFF] Radar already off. Penalty applied.
+  [PATROL] First ally distance reading: 5.1 km
+  [RADAR OFF] Radar already off. Penalty applied.
+  [PATROL] Closer to ally (5.1 km, was 5.1 km) -> +0.2
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [IDLE PENALTY] Not moving for 5 steps.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [IDLE PENALTY] Not moving for 5 steps.
+  [RADAR OFF] Radar already off. Penalty applied.
+  [CLASSIFY] AEW #1 identified as 'X' → +5.0
+  [ATTACK slot=0] AEW #1 (posture=X) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [IDLE PENALTY] Not moving for 5 steps.
+  [ATTACK] Contact still alive
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}
+  [ATTACK] Contact still alive
+  [ATTACK slot=0] AEW #1 (posture=H) → {'status': 'attacking', 'target': 'AEW #1'}

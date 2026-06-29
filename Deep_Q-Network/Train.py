@@ -1,13 +1,13 @@
 import time
 import numpy as np
 import sys
+
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
-
 from TrainingGraphs import TrainingGraph
 
 from Env    import CPEEnv
-from DQN  import DQNAgent
+from DQN    import DQNAgent
 from Config import ACTION_NAMES
 from Utils  import parse_start_episode
 

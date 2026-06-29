@@ -3,11 +3,11 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from TrainingGraphs_test import TrainingGraph
+from TrainingGraphs import TrainingGraph
 
-from RL.Env    import CMOEnv
-from RL.Qlearning  import QLearningAgent
-from RL.Config import ACTION_NAMES
+from Env    import CMOEnv
+from Qlearning  import QLearningAgent
+from Config import ACTION_NAMES
 
 # Training loop 
 
